@@ -1,5 +1,5 @@
 class PostImage < ApplicationRecord
 
-  has_one_attaced :image
+  has_one_attached :image
   belongs_to :user #imegeにはuser情報に属する
 end
