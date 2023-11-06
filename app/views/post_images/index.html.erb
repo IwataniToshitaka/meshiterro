@@ -1,10 +1,11 @@
 <% @post_images.each do |post_image| %>
   <!--コントローラから渡された変数内から１つずつ取り出してpost_image変数へ格納-->
   <div>
-    <%= image_tag post_image.get_image %>
+    <%= link_to post_image_path(post_image.id) do %>
     <p>投稿ユーザ画像: <%= image_tag 'sample-author1.jpg' %></p>
     <p>ショップ名: <%= post_image.shop_name %></p>
     <p>説明: <%= post_image.caption %></p>
     <p>ユーザーネーム: <%= post_image.user.name %></p>
+<% end %>  
   </div>
 <% end %>
