@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "homes#top"  #サイトのルートページを決める記述
-  resources :post_images, only: [:new, :create, :index, :show, :destroy]
+  get 'homes/about' => 'homes#about', as: "about"
+  resources :post_images, only: [:new, :create, :index, :show, :destroy] do
+    resources :post_comments, only: [:create]
+  end
   resources :users, only: [:show, :edit, :update]
-
-  get 'homes/about' => 'about#index'
-  get '/about' => 'about#index' ,as: 'about'
 end
