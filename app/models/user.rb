@@ -6,10 +6,10 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
   #1:Nの構想　ユーザ情報が削除された場合それに紐づく全てのimageが削除される
 
+  has_one_attached :profile_image
   has_many :post_images, dependent: :destroy #has_manyで使えるオプション
   has_many :post_comments, dependent: :destroy  #1:Nにおいて1が削除された場合、Nも一緒に
-  has_one_attached :profile_image
-  
+  has_many :favorites, dependent: :destroy
 
   def get_profile_image(width, height)
     unless profile_image.attached?
